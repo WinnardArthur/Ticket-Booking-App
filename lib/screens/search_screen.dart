@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ticket_booking_app/utils/app_styles.dart';
 import 'package:gap/gap.dart';
 import 'package:ticket_booking_app/utils/app_layout.dart';
+import 'package:ticket_booking_app/widgets/icon_text_widget.dart';
+import 'package:ticket_booking_app/widgets/header_row.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -24,6 +26,11 @@ class SearchScreen extends StatelessWidget {
           FittedBox(
             child: Container(
                 padding: const EdgeInsets.all(.5),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(
+                      AppLayout.getHeight(50),
+                    ),
+                    color: const Color(0xFFF4F6FD)),
                 child: Row(children: [
                   // Left container
                   Container(
@@ -35,7 +42,7 @@ class SearchScreen extends StatelessWidget {
                           left: Radius.circular(AppLayout.getHeight(50))),
                       color: Colors.white,
                     ),
-                    child: Center(child: Text("Airline tickets")),
+                    child: const Center(child: Text("Airline tickets")),
                   ),
                   Container(
                     width: size.width * .44,
@@ -46,15 +53,34 @@ class SearchScreen extends StatelessWidget {
                           right: Radius.circular(AppLayout.getHeight(50))),
                       color: Colors.transparent,
                     ),
-                    child: Center(child: Text("Hotels")),
+                    child: const Center(child: Text("Hotels")),
                   ),
-                ]),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(
-                      AppLayout.getHeight(50),
-                    ),
-                    color: const Color(0xFFF4F6FD))),
-          )
+                ])),
+          ),
+          Gap(AppLayout.getHeight(20)),
+          const AppIconText(
+              icon: Icons.flight_takeoff_rounded, text: 'Departure'),
+          Gap(AppLayout.getHeight(20)),
+          const AppIconText(icon: Icons.flight_land_rounded, text: 'Arrival'),
+          Gap(AppLayout.getHeight(25)),
+          Container(
+            padding: EdgeInsets.symmetric(
+              vertical: AppLayout.getHeight(18),
+              horizontal: AppLayout.getWidth(10),
+            ),
+            decoration: BoxDecoration(
+              color: const Color(0xD91130CE),
+              borderRadius: BorderRadius.circular(AppLayout.getWidth(10)),
+            ),
+            child: Center(
+              child: Text(
+                "Find Tickets",
+                style: Styles.textStyle.copyWith(color: Colors.white),
+              ),
+            ),
+          ),
+          Gap(AppLayout.getHeight(40)),
+          const HeaderRow(largeText: "Upcoming Flights", smallText: "View all")
         ],
       ),
     );

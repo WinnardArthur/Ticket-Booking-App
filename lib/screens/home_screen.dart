@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:ticket_booking_app/screens/hotel_screen.dart';
 import 'package:ticket_booking_app/utils/app_info_list.dart';
+import 'package:ticket_booking_app/widgets/header_row.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -59,18 +60,8 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               const Gap(40),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Upcoming Flights", style: Styles.headlineStyle2),
-                  InkWell(
-                    onTap: () {},
-                    child: Text("View all",
-                        style: Styles.textStyle
-                            .copyWith(color: Styles.primaryColor)),
-                  )
-                ],
-              )
+              const HeaderRow(
+                  largeText: "Upcoming Flights", smallText: "View all"),
             ],
           ),
         ),
@@ -85,19 +76,8 @@ class HomeScreen extends StatelessWidget {
         ),
         const Gap(15),
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text("Hotels", style: Styles.headlineStyle2),
-              InkWell(
-                  onTap: () {},
-                  child: Text("View all",
-                      style: Styles.textStyle
-                          .copyWith(color: Styles.primaryColor)))
-            ],
-          ),
-        ),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: const HeaderRow(largeText: "Hotels", smallText: "View all")),
         const Gap(15),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
