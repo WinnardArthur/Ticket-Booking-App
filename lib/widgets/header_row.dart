@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ticket_booking_app/utils/app_layout.dart';
-import 'package:gap/gap.dart';
 import 'package:ticket_booking_app/utils/app_styles.dart';
 
 class HeaderRow extends StatelessWidget {
