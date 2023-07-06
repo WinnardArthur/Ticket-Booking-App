@@ -4,7 +4,9 @@ import 'package:ticket_booking_app/utils/app_info_list.dart';
 import 'package:ticket_booking_app/utils/app_layout.dart';
 import 'package:ticket_booking_app/utils/app_styles.dart';
 import 'package:gap/gap.dart';
+import 'package:ticket_booking_app/widgets/layout_builder.dart';
 import '../widgets/ticket_tabs.dart';
+import '../widgets/column_layout.dart';
 
 class TicketScreen extends StatelessWidget {
   const TicketScreen({super.key});
@@ -31,24 +33,90 @@ class TicketScreen extends StatelessWidget {
                   padding: EdgeInsets.only(left: AppLayout.getHeight(15)),
                   child: TicketView(ticket: ticketList[0], isColor: true),
                 ),
+                SizedBox(
+                  height: 1,
+                ),
                 Container(
-                    margin: EdgeInsets.symmetric(horizontal: 15),
-                    color: Colors.white,
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Column(
-                              children: [
-                                Text("Futter PT", style: Styles.headlineStyle3),
-                                Gap(AppLayout.getHeight(5)),
-                                Text("Passenger", style: Styles.headlineStyle3),
-                              ],
-                            )
-                          ],
-                        )
-                      ],
-                    )),
+                  margin: const EdgeInsets.symmetric(horizontal: 15),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+                  color: Colors.white,
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const AppColumnLayout(
+                            firstText: 'Flutter PT',
+                            secondText: 'Passengers',
+                            alignment: CrossAxisAlignment.start,
+                            isColor: false,
+                          ),
+                          const AppColumnLayout(
+                            firstText: '8432 238459',
+                            secondText: 'Passengers',
+                            alignment: CrossAxisAlignment.end,
+                            isColor: false,
+                          ),
+                        ],
+                      ),
+                      Gap(AppLayout.getHeight(20)),
+                      const AppLayoutBuilderWidget(
+                        sections: 15,
+                        isColor: false,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const AppColumnLayout(
+                            firstText: '0324 876245 PT',
+                            secondText: 'Number of E-ticket',
+                            alignment: CrossAxisAlignment.start,
+                            isColor: false,
+                          ),
+                          const AppColumnLayout(
+                            firstText: 'ES97F0',
+                            secondText: 'Booking Code',
+                            alignment: CrossAxisAlignment.end,
+                            isColor: false,
+                          ),
+                        ],
+                      ),
+                      Gap(AppLayout.getHeight(20)),
+                      const AppLayoutBuilderWidget(
+                        sections: 15,
+                        isColor: false,
+                      ),
+                      Gap(AppLayout.getHeight(20)),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Image.asset("assets/images/hotel1.jpeg",
+                                      scale: 11),
+                                  Text(" *** 2884",
+                                      style: Styles.headlineStyle3)
+                                ],
+                              ),
+                              Text("Payment method",
+                                  style: Styles.headlineStyle4)
+                            ],
+                          ),
+                          const AppColumnLayout(
+                            firstText: '\$570.99',
+                            secondText: 'Price',
+                            alignment: CrossAxisAlignment.end,
+                            isColor: false,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
               ],
             )
           ],
